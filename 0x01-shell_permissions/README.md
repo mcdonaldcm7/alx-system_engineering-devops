@@ -7,3 +7,5 @@ This README file will contain details about the task 0x01-shell_permissions and 
   2-groups: This script prints all the groups the current user is a part of.
 
   3-new_owner: This script changes the owner of the file hello to betty.
+
+  4-empty: This script created an empty file called hello.
