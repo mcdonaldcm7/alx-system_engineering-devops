@@ -13,3 +13,5 @@ This README file will contain details about the task 0x01-shell_permissions and 
   5-execute: This script adds execute permission to the owner of the file hello.
 
   6-multiple_permissions: This script adds execute permission to the owner and the group, and add read commands to the other user, to the file hello.
+
+  7-everybody: This script adds execution permission to the owner, the group, and the other users, to the file hello.
