@@ -9,3 +9,5 @@ This README file will contain details about the task 0x01-shell_permissions and 
   3-new_owner: This script changes the owner of the file hello to betty.
 
   4-empty: This script created an empty file called hello.
+
+  5-execute: This script adds execute permission to the owner of the file hello.
