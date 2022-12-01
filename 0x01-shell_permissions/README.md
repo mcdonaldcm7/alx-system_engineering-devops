@@ -25,3 +25,5 @@ This README file will contain details about the task 0x01-shell_permissions and 
   11-directories_permissions: This script adds execute permissions to all subdirectories for the owner, the group owner, and all other users.
 
   12-directory_permissions: This script creates a directory called "my_dir" with permissions 751 in the working directory.
+
+  13-change_group: This script changes the group owner of the file hello to school.
