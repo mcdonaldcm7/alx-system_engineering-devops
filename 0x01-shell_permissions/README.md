@@ -27,3 +27,5 @@ This README file will contain details about the task 0x01-shell_permissions and 
   12-directory_permissions: This script creates a directory called "my_dir" with permissions 751 in the working directory.
 
   13-change_group: This script changes the group owner of the file hello to school.
+
+  100-change_owner_and_group: This script changes the owner and the group of all the files and directories in the current working directory.
