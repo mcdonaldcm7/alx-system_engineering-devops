@@ -21,3 +21,5 @@ This README file will contain details about the task 0x01-shell_permissions and 
   9-John_Doe: This script sets the permission for the file hello as -rwxr-x-wx.
 
   10-mirror_permissions: Sets the mode of the file hello the same as the file hello.
+
+  11-directories_permissions: This script adds execute permissions to all subdirectories for the owner, the group owner, and all other users.
