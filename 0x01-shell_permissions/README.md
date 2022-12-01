@@ -19,3 +19,5 @@ This README file will contain details about the task 0x01-shell_permissions and 
   8-James_Bond: This script strips both the owner and the group of all permissions, and gives the other users all the permissions.
 
   9-John_Doe: This script sets the permission for the file hello as -rwxr-x-wx.
+
+  10-mirror_permissions: Sets the mode of the file hello the same as the file hello.
