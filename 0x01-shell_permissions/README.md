@@ -31,3 +31,5 @@ This README file will contain details about the task 0x01-shell_permissions and 
   100-change_owner_and_group: This script changes the owner and the group of all the files and directories in the current working directory.
 
   101-symbolic_link_permissions: This script changes the owner and the group owner of "_hello" to vincent and staff respectively.
+
+  102-if_only: This script changes the owner of the file "hello" to "betty", If only it's previous owner was "guillaume".
