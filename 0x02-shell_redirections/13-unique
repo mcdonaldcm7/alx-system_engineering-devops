@@ -1,2 +1,2 @@
 #!/bin/bash
-sort -u $1 | cat | head --lines=1
+sort $1 | uniq -u | cat
