@@ -13,3 +13,5 @@ This README.md file contains a detailed descriptions of the scripts that utilize
   5-firstlines: This script displays the first 10 lines of "/etc/passwd"
 
   6-third_line: This script displays the third line of the file iacta.
+
+  8-cwd_state: This script writes into the file ls_cwd_content the result of the command ls -la.
