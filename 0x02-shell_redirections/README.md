@@ -6,4 +6,6 @@ This README.md file contains a detailed descriptions of the scripts that utilize
 
   2-hellofile: This script print the content of the "/etc/passwd" file.
 
-  3-twofiles: This script displays the content of the two files /etc/passwd and /etc/hosts
+  3-twofiles: This script displays the content of the two files "/etc/passwd" and "/etc/hosts"
+
+  4-lastlines: This script displays the last ten lines of "/etc/passwd"
