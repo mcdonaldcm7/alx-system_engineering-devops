@@ -8,4 +8,6 @@ This README.md file contains a detailed descriptions of the scripts that utilize
 
   3-twofiles: This script displays the content of the two files "/etc/passwd" and "/etc/hosts"
 
-  4-lastlines: This script displays the last ten lines of "/etc/passwd"
+  4-lastlines: This script displays the last 10 lines of "/etc/passwd"
+
+  5-firstlines: This script displays the first 10 lines of "/etc/passwd"
