@@ -5,3 +5,5 @@ This README.md file contains a detailed descriptions of the scripts that utilize
   1-confused_smiley: This script prints a confused smiley "(Ôo)'.
 
   2-hellofile: This script print the content of the "/etc/passwd" file.
+
+  3-twofiles: This script displays the content of the two files /etc/passwd and /etc/hosts
