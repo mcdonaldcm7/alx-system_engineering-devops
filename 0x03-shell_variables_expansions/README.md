@@ -2,4 +2,6 @@ This README.md file contains detailed information about the scripts in the 0x03-
 
   0-alias: This script creates an alias named ls with the value "rm *"
 
+  1-hello_you: This script print hello user, where user is the current Linux user.
+
   
