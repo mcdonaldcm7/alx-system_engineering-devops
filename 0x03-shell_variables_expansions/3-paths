@@ -1,2 +1,2 @@
 #!/bin/bash
-echo "$PATH" | grep -e "/*:" -o | wc -l
+echo "$PATH" | grep -F "bin" -o | wc -l
