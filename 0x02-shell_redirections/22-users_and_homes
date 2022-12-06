@@ -1,2 +1,2 @@
 #!/bin/bash
-grep -F "usr" | sort 
+cat /etc/passwd | sort 
