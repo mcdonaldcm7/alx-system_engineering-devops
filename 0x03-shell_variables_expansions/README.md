@@ -4,4 +4,6 @@ This README.md file contains detailed information about the scripts in the 0x03-
 
   1-hello_you: This script print hello user, where user is the current Linux user.
 
-  
+  2-path: This script adds /action to the path.
+
+   
