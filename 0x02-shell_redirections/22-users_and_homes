@@ -1,2 +1,2 @@
 #!/bin/bash
-cat /etc/passwd | sort 
+grep -e "[*:]" $1 -m 1 /etc/passwd | cut -d: -f1,7 /etc/passwd 
