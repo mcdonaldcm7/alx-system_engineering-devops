@@ -6,4 +6,4 @@ This README.md file contains detailed information about the scripts in the 0x03-
 
   2-path: This script adds /action to the path.
 
-   
+  4-global_variables: This script lists the environment variables.  
