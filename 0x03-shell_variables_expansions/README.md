@@ -18,4 +18,10 @@ This README.md file contains detailed information about the scripts in the 0x03-
 
   8-true_knowledge: This script prints the result of the addition of 128 with the stored value of the environment variable true knowledge.
 
+  9-divide_and_rule: This is a script that prints the result of the variable POWER divided by DIVIDE, followed by a new line.
+
+  10-love_exponent_breath: This script displays the result of BREATH to the power of LOVE.
+
+  13-print_float: This script prints a number with two decimal places, followed by a new line.
+
   
