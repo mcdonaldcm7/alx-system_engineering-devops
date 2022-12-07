@@ -1,2 +1,2 @@
 #!/bin/bash
-grep -e "[*:]" $1 /etc/passwd | cut -d: -f1,7 /etc/passwd 
+grep -e "[*:]" $1 /etc/passwd | cut -d: -f1,7 /etc/passwd
