@@ -16,4 +16,6 @@ This README.md file contains detailed information about the scripts in the 0x03-
 
   7-create_global_variable: This script creates a new global variable.
 
+  8-true_knowledge: This script prints the result of the addition of 128 with the stored value of the environment variable true knowledge.
 
+  
