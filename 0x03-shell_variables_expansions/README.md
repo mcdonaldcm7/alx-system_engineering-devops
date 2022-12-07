@@ -28,4 +28,6 @@ This README.md file contains detailed information about the scripts in the 0x03-
 
   100-decimal_to_hexadecimal: This is a script that converts a number from base 10 to base 16.
 
-  
+  101-rot13: This script encodes and decodes text using the rot13 encryption.
+
+   
