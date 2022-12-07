@@ -26,4 +26,6 @@ This README.md file contains detailed information about the scripts in the 0x03-
 
   13-print_float: This script prints a number with two decimal places, followed by a new line.
 
+  100-decimal_to_hexadecimal: This is a script that converts a number from base 10 to base 16.
+
   
