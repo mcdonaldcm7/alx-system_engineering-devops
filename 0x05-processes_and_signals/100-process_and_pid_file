@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+#A Bash script that creates a file that displays 'To infinity and beyond'indefinitely and has several signal handlers
+sudo su -
+touch "/var/run/myscript.pid"
+chmod 666 "/var/run/myscript.pid"
+cat "$(pgrep -f "./100-process_and_pid_file")" >> "/var/run/myscript.pid"
+function sigterm_handler {
+	echo "I hate the kill command"
+}
+function sigint_handler {
+	echo "Y U no love me?!"
+}
+function sigquit_handler {
+	rm "/var/run/myscript.pid"
+	exit
+}
+trap 'sigterm_handler' SIGTERM
+trap 'sigint_handler' SIGINT
+trap 'sigquit_handler' SIGQUIT
+i=1
+while [ $i -ge 1 ]
+do
+	echo "To infinity and beyond"
+done
