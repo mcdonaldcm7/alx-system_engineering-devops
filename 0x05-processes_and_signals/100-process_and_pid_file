@@ -11,6 +11,7 @@ function sigint_handler {
 	echo "Y U no love me?!"
 }
 function sigquit_handler {
+	sudo su -
 	rm "/var/run/myscript.pid"
 	exit
 }
