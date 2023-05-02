@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+#A Bash script that indefinitely writes to a file and pauses for 2 secs in betweeen each write
+file="/tmp/my_process"
+i=1
+while [ $i -ge 1 ]
+do
+	if [ -e "$file" ]
+	then
+		cat "I am alive" >> "$file"
+	else
+		touch "$file"
+		cat "I am alive" >> "$file"
+	fi
+	sleep 2
+done
