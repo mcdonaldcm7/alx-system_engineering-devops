@@ -6,10 +6,10 @@ while [ $i -ge 1 ]
 do
 	if [ -e "$file" ]
 	then
-		cat "I am alive" >> "$file"
+		echo "I am alive!" >> "$file"
 	else
-		touch "$file"
-		cat "I am alive" >> "$file"
+		touch "/tmp/my_process"
+		echo "I am alive!" >> "$file"
 	fi
 	sleep 2
 done
