@@ -3,7 +3,7 @@
 sudo su -
 case "$1" in
 	"start")
-		"./manage_my_process"
+		"$("./manage_my_process" &)"
 		touch "/var/run/my_process.pid"
 		chmod 666 "/var/run/myscript.pid"
 		cat "$(pgrep -f "./manage_my_process")" >> "/var/run/my_process.pid"
@@ -20,7 +20,8 @@ case "$1" in
 		touch "/var/run/my_process.pid"
 		chmod 666 "/var/run/my_process.pid"
 		cat "$(pgrep -f "./manage_my_process")" >> "/var/run/my_process.pid"
-		"./manage_my_process"
+		"$("./manage_my_process" &)"
+		echo "manage_my_process restarted"
 		;;
 	*)
 		echo "Usage: manage_my_process {start|stop|restart}"
