@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+# A configuration file to refuse password authentication and the specified key
+Host 52.91.134.249
+	Hostname 52.91.134.249
+	User ubuntu
+	PasswordAuthenticaiton no
+	IdentityFile ~/.ssh/school
