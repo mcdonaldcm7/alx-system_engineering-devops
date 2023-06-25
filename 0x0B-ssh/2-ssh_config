@@ -5,3 +5,4 @@ Host 52.91.134.249
 	User ubuntu
 	PasswordAuthenticaiton no
 	IdentityFile ~/.ssh/school
+	PreferredAuthenticationas publickey
