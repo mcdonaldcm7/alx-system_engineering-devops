@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
-
+# A Bash script that uses ssh to conect to a server using the private key specified
 p_key="~/.ssh/school"
 username=ubuntu
 ip=52.91.134.249
 
-ssh_command= "ssh -i $p_key $username@ip"
+ssh_command= "ssh -i $p_key $username@$ip"
 $ssh_command
