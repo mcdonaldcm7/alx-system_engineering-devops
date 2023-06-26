@@ -1,0 +1,7 @@
+# Configuration file to refuse password authentication and use private key
+Host 52.91.134.249
+  Hostname 52.91.134.249
+  User ubuntu
+  PasswordAuthentication no
+  IdentityFile <%= @private_key %>
+  PreferredAuthentications publickey
