@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/env bash
 # A script to install nginx server and define a simple page response for port 80
 sudo apt-get update
 sudo apt-get install -y curl wget git
@@ -15,3 +15,4 @@ server {
         }
 }
 EOF
+sudo nginx -s reload
