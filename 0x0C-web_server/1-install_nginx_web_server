@@ -5,7 +5,6 @@ sudo apt-get install -y curl wget git
 sudo apt-get -y install nginx
 sudo systemctl enable nginx
 sudo systemctl start nginx
-sudo chown -R $USER:$USER /var/www
 echo "Hello World!" | sudo tee /var/www/html/index.html > /dev/null
 sudo tee /etc/nginx/conf.d/hello.conf > /dev/null <<EOF
 server {
