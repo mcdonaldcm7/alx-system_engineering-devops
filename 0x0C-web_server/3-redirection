@@ -3,6 +3,7 @@
 sudo apt-get update
 sudo apt-get install -y nginx
 sudo apt-get install -y curl wget git
+sudo service nginx start
 sudo tee /etc/nginx/sites-available/redirect.conf > /dev/null <<EOF
 server {
 	listen 80;
@@ -13,4 +14,4 @@ server {
 	}
 }
 EOF
-sudo service nginx start
+sudo nginx -s reload
