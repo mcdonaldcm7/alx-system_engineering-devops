@@ -2,12 +2,15 @@
 # A Bash script containing commands to automatically configure a redirect_me
 sudo apt-get update
 sudo apt-get install -y nginx
-sudo tee /etc/nginx/conf.d/redirect.conf > /dev/null <<EOF
+sudo apt-get install -y curl wget git
+sudo tee /etc/nginx/sites-available/redirect.conf > /dev/null <<EOF
 server {
-    listen 80;
-    location /redirect_me {
-        return 301 https://google.com;
-    }
+	listen 80;
+	server_name 52.91.134.249;
+
+	location /redirect_me {
+		return 301 https://google.com;
+	}
 }
 EOF
 sudo service nginx start
