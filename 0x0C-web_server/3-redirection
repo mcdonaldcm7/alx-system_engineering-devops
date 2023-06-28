@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+# A Bash script containing commands to automatically configure a redirect_me
+sudo apt-get update
+sudo apt-get install -y nginx
+sudo tee /etc/nginx/conf.d/redirect.conf > /dev/null <<EOF
+server {
+    listen 80;
+    server_name _;
+
+    location /redirect_me {
+        return 301 https://example.com/new-page;
+    }
+
+    # Add any other server blocks or configurations as needed
+}
+EOF
+sudo service nginx start
