@@ -4,6 +4,16 @@ sudo apt-get update
 sudo apt-get install -y nginx
 sudo apt-get install -y curl wget git
 sudo service nginx start
+echo "Hello World!" | sudo tee /var/www/html/index.html > /dev/null
+sudo tee /etc/nginx/conf.d/hello.conf > /dev/null <<EOF
+server {
+        listen 80;
+        location / {
+                root /var/www/html;
+                index index.html;
+        }
+}
+EOF
 sudo tee /etc/nginx/sites-available/redirect.conf > /dev/null <<EOF
 server {
 	listen 80;
