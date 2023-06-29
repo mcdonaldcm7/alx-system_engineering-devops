@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+# A script to define a default 404 page
+echo "Ceci n'est pas une page" | sudo tee /var/www/html/not_found.html > /dev/null
+sudo sed -i "s/index /index not_found.html /" /etc/nginx/sites-enabled/default
+new_string="try_files \$uri \$uri/ not_found.html"
+replace="try_files \$uri \$uri/ =404"
+sudo sed -i "s|$replace|$new_string|" /etc/nginx/sites-enabled/default
+sudo nginx -s reload
