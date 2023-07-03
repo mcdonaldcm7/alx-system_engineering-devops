@@ -14,5 +14,5 @@ server {
         }
 }
 EOF
-#service nginx start
+sudo service nginx start
 sudo nginx -s reload
