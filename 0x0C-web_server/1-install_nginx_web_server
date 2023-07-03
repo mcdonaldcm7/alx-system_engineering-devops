@@ -7,10 +7,12 @@ echo "Hello World!" | tee /var/www/html/index.html > /dev/null
 tee /etc/nginx/conf.d/hello.conf > /dev/null <<EOF
 server {
         listen 80;
+	server_name 52.91.134.249;
         location / {
                 root /var/www/html;
                 index index.html;
         }
 }
 EOF
-service nginx start
+#service nginx start
+sudo nginx -s reload
