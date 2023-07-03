@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
 # A script to install nginx server and define a simple page response for port 80
-sudo apt-get update
-sudo apt-get install -y curl wget git
-sudo apt-get -y install nginx
-echo "Hello World!" | sudo tee /var/www/html/index.html > /dev/null
-sudo tee /etc/nginx/conf.d/hello.conf > /dev/null <<EOF
+apt-get update
+apt-get install -y curl wget git
+apt-get -y install nginx
+echo "Hello World!" | tee /var/www/html/index.html > /dev/null
+tee /etc/nginx/conf.d/hello.conf > /dev/null <<EOF
 server {
         listen 80;
         location / {
@@ -13,4 +13,4 @@ server {
         }
 }
 EOF
-sudo service nginx start
+service nginx start
