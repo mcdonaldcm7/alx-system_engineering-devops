@@ -1,8 +1,30 @@
 #!/usr/bin/env bash
-# A script to define a default 404 page
-echo "Ceci n'est pas une page" | sudo tee /var/www/html/not_found.html > /dev/null
-sudo sed -i "s/index /index not_found.html /" /etc/nginx/sites-enabled/default
-new_string="try_files \$uri \$uri/ not_found.html"
-replace="try_files \$uri \$uri/ =404"
-sudo sed -i "s|$replace|$new_string|" /etc/nginx/sites-enabled/default
-sudo nginx -s reload
+# A Bash script containing commands to automatically configure a redirect_me
+apt-get update
+apt-get install -y curl wget git
+apt-get -y install nginx
+
+echo "Hello World!" | tee /var/www/html/index.html > /dev/null
+if [ ! -f "/etc/nginx/conf.d/hello.conf" ]
+then
+        tee /etc/nginx/conf.d/hello.conf > /dev/null <<EOF
+server {
+        listen 80;
+        server_name 52.91.134.249;
+        root /var/www/html;
+        index index.html;
+        location / {
+        }
+}
+EOF
+fi
+replace="location \/redirect_me {\n\t\treturn 301 https:\/\/google.com;\n\t}\n\tlocation \/ {"
+sed -i "s/location \/ {/$replace/" /etc/nginx/conf.d/hello.conf
+
+echo "Ceci n'est pas une page" | tee /var/www/html/not_found.html > /dev/null
+sed -i '/index index.html not_found.html/!{ s/index index.html/index index.html not_found.html/; }' /etc/nginx/conf.d/hello.conf
+new_string="location / {\n\t\terror_page 404 /not_found.html;"
+replace="location / {"
+sed -i "s|$replace|$new_string|" /etc/nginx/conf.d/hello.conf
+service nginx start
+nginx -s reload
