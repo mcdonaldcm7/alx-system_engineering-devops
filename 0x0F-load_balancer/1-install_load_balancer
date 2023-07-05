@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+# Install and configure HAproxy on the server
+apt-get update
+apt-get install --no-install-recommends software-properties-common
+add-apt-repository ppa:vbernat/haproxy-2.8
+apt-get -y install haproxy=2.8.\*
+cp /etc/haproxy/haproxy.cfg /etc/haproxy/haproxy.cfg.orig
+replace_mode="tcp"
+replace_option="tcplog"
+sed -i "s/mode\thttp/$replace_mode/" /etc/haproxy/haproxy.cfg
+sed -i "s/option\thttplog/$replace_option/" /etc/haproxy/haproxy.cfg
+backend="backend web_backend\n\tbalance roundrobin\n\tserver web-01 52.91.134.249\n\tserver web-02 34.224.2.192"
+frontend="frontend web_frontend\n\tbind 0.0.0.0:80\n\tmode http\n\tdefault_backend web_backend"
+echo $backend >> haproxy.cfg
+echo $frontend >> haproxy.cfg
+service haproxy start
