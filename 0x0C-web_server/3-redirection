@@ -3,6 +3,17 @@
 apt-get update
 apt-get install -y curl wget git
 apt-get install nginx
+echo "Hello World!" | tee /var/www/html/index.html > /dev/null
+tee /etc/nginx/conf.d/hello.conf > /dev/null <<EOF
+server {
+        listen 80;
+        server_name 52.91.134.249;
+        location / {
+                root /var/www/html;
+                index index.html;
+        }
+}
+EOF
 sudo service nginx start
 replace="location \/redirect_me {\n\t\treturn 301 https:\/\/google.com;\n\t}\n\tlocation \/ {"
 sudo sed -i "s/location \/ {/$replace/" /etc/nginx/conf.d/hello.conf
