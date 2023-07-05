@@ -14,7 +14,7 @@ server {
         }
 }
 EOF
-sudo service nginx start
 replace="location \/redirect_me {\n\t\treturn 301 https:\/\/google.com;\n\t}\n\tlocation \/ {"
 sudo sed -i "s/location \/ {/$replace/" /etc/nginx/conf.d/hello.conf
+sudo service nginx start
 sudo nginx -s reload
