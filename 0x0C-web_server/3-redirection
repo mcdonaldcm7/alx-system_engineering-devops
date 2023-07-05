@@ -3,14 +3,7 @@
 apt-get update
 apt-get install -y curl wget git
 apt-get install nginx
-service nginx start
-tee /etc/nginx/sites-available/redirect.conf > /dev/null <<EOF
-server {
-	listen 80;
-	server_name 52.91.134.249;
-	location /redirect_me {
-		return 301 https://google.com;
-	}
-}
-EOF
-nginx -s reload
+sudo service nginx start
+replace="location \/redirect_me {\n\t\treturn 301 https:\/\/google.com;\n\t}\n\tlocation \/ {"
+sudo sed -i "s/location \/ {/$replace/" /etc/nginx/conf.d/hello.conf
+sudo nginx -s reload
