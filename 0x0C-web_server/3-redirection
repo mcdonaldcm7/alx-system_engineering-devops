@@ -1,4 +1,3 @@
-
 #!/usr/bin/env bash
 # A Bash script containing commands to automatically configure a redirect_me
 apt-get update
