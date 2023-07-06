@@ -1,12 +1,13 @@
+
 #!/usr/bin/env bash
 # A Bash script containing commands to automatically configure a redirect_me
 apt-get update
 apt-get install -y curl wget git
 apt-get -y install nginx
 echo "Hello World!" | tee /var/www/html/index.html > /dev/null
-if [ ! -f "/etc/nginx/conf.d/hello.conf" ]
+if [ ! -f "/etc/nginx/sites-available/lq-enterprise.tech.conf" ]
 then
-        tee /etc/nginx/conf.d/hello.conf > /dev/null <<EOF
+        tee /etc/nginx/sites-available/lq-enterprise.tech.conf > /dev/null <<EOF
 server {
         listen 80;
         server_name lq-enterprise.tech;
@@ -18,6 +19,10 @@ server {
 EOF
 fi
 replace="location \/redirect_me {\n\t\treturn 301 https:\/\/google.com;\n\t}\n\tlocation \/ {"
-sed -i "s/location \/ {/$replace/" /etc/nginx/conf.d/hello.conf
+sed -i "s/location \/ {/$replace/" /etc/nginx/sites-available/lq-enterprise.tech.conf
+if [ ! -f "/etc/nginx/sites-enabled/lq-enterprise.tech.conf" ]
+then
+        ln -s /etc/nginx/sites-available/lq-enterprise.tech.conf /etc/nginx/sites-enabled
+fi
 service nginx start
 nginx -s reload
