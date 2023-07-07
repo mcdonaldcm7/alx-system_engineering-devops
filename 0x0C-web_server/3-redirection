@@ -4,9 +4,9 @@ apt-get update
 apt-get install -y curl wget git
 apt-get -y install nginx
 echo "Hello World!" | tee /var/www/html/index.html > /dev/null
-if [ ! -f "/etc/nginx/sites-available/lq-enterprise.tech.conf" ]
+if [ ! -f "/etc/nginx/conf.d/lq-enterprise.tech.conf" ]
 then
-        tee /etc/nginx/sites-available/lq-enterprise.tech.conf > /dev/null <<EOF
+        tee /etc/nginx/conf.d/lq-enterprise.tech.conf > /dev/null <<EOF
 server {
         listen 80 default_server;
         listen [::]:80 default_server;
@@ -19,10 +19,6 @@ server {
 EOF
 fi
 replace="location \/redirect_me {\n\t\treturn 301 https:\/\/google.com;\n\t}\n\tlocation \/ {"
-sed -i "s/location \/ {/$replace/" /etc/nginx/sites-available/lq-enterprise.tech.conf
-if [ ! -f "/etc/nginx/sites-enabled/lq-enterprise.tech.conf" ]
-then
-        ln -s /etc/nginx/sites-available/lq-enterprise.tech.conf /etc/nginx/sites-enabled
-fi
+sed -i "s/location \/ {/$replace/" /etc/nginx/conf.d/lq-enterprise.tech.conf
 service nginx start
 nginx -s reload
