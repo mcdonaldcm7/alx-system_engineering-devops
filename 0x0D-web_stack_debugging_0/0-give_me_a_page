@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+# Modifies the index.html file to display Hello Holberton
+echo "Hello Holberton" > ./htdocs/index.html
