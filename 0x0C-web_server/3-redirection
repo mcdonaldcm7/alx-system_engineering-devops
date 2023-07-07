@@ -8,8 +8,9 @@ if [ ! -f "/etc/nginx/sites-available/lq-enterprise.tech.conf" ]
 then
         tee /etc/nginx/sites-available/lq-enterprise.tech.conf > /dev/null <<EOF
 server {
-        listen 80;
-        server_name lq-enterprise.tech;
+        listen 80 default_server;
+        listen [::]:80 default_server;
+        server_name "lq-enterprise.tech";
         root /var/www/html;
         index index.html;
         location / {
