@@ -1,12 +1,32 @@
 #!/usr/bin/env bash
 # A Bash script containing commands to automatically configure a redirect_me
+default="/etc/nginx/sites-available/default"
 apt-get update
 apt-get install -y curl wget git
 apt-get -y install nginx
 echo "Hello World!" | tee /var/www/html/index.html > /dev/null
-replace_name="server_name \"lq-enterprise.tech\""
+if [ -f "$default" ]
+then
+        rm "$default"
+fi
+
+tee "$default" > /dev/null <<EOF
+server {
+        listen 80 default_server;
+        listen [::]:80 default_server;
+        server_name "lq-enterprise.tech";
+        root /var/www/html;
+        index index.html;
+        location / {
+#               try_files $uri $uri/ =404;
+        }
+}
+EOF
 replace="location \/redirect_me {\n\t\treturn 301 https:\/\/google.com;\n\t}\n\tlocation \/ {"
-sed -i "s/location \/ {/$replace/" /etc/nginx/sites-available/default
-sed -i "/$replace_name/!{ s/server_name _/$replace_name/;}" /etc/nginx/sites-available/default
+sed -i "s/location \/ {/$replace/" "$default"
+if [ ! -f "$default" ]
+then
+        ln -s "$default" "/etc/nginx/sites-enabled/"
+fi
 service nginx start
 nginx -s reload
