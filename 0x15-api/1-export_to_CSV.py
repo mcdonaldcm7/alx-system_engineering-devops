@@ -3,9 +3,9 @@
 Returns information about the TODO list progress for a given employee ID
 and exports data in the CSV format
 """
+import csv
 import requests
 import sys
-import csv
 
 
 if __name__ == "__main__":
@@ -30,5 +30,5 @@ if __name__ == "__main__":
     file_name = "{}.csv".format(param)
 
     with open(file_name, mode='w', newline='') as file:
-        writer = csv.writer(file)
+        writer = csv.writer(file, quoting=csv.QUOTE_ALL)
         writer.writerows(tasks)
