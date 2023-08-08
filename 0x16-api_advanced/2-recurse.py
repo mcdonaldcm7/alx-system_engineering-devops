@@ -24,10 +24,10 @@ def recurse(subreddit, hot_list=[], count=None):
     result = r.json()
 
     if "error" in result or r.status_code != 200:
-        return (hot_list)
+        return (None)
     hot_data = result["data"]["children"]
     if len(hot_data) == 0:
-        return (hot_list)
+        return (None if len(hot_list) == 0 else hot_list)
     for q in hot_data:
         hot_list.append(q["data"]["title"])
         count += 1
