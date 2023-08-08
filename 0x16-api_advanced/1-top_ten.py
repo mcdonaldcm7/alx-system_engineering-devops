@@ -11,7 +11,12 @@ def top_ten(subreddit):
     headers = {"User-Agent": "My-App/0.0.2"}
 
     r = requests.get(url, headers=headers)
-    result = r.json()["data"]["children"]
+    result = r.json()
 
-    for q in result:
-        print(q["data"]["title"])
+    if result:
+        if "error" in result or r.status_code != 200:
+            print(None)
+            return ()
+        hot_data = result["data"]["children"]
+        for q in hot_data:
+            print(q["data"]["title"])
