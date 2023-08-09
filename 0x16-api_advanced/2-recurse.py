@@ -6,17 +6,15 @@ the hot posts listed for a given subreddit
 import requests
 
 
-def recurse(subreddit, hot_list=[], count=None):
+def recurse(subreddit, hot_list=[], after=None):
     """
     Recursively queries the Redddit API and returns a list of all hot articles
     for a given subreddit
     """
     url = "https://www.reddit.com/r/{}/hot.json?limit=10".format(subreddit)
 
-    if count:
-        url += "?count={}".format(count)
-    else:
-        count = 0
+    if after:
+        url += "&after={}".format(after)
 
     headers = {"User-Agent": "My-App/0  .0.2"}
 
@@ -30,5 +28,5 @@ def recurse(subreddit, hot_list=[], count=None):
         return (None if len(hot_list) == 0 else hot_list)
     for q in hot_data:
         hot_list.append(q["data"]["title"])
-        count += 1
-    recurse(subreddit, hot_list, count)
+    next_after = result["data"]["after"]
+    recurse(subreddit, hot_list, next_after)
